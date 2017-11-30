@@ -7,6 +7,7 @@ class Student < ApplicationRecord
 
     before_save :student_fullname
 
+    before_update :student_fullname_update
     def student_fullname
     	self.full_name = fname + lname 
     end
