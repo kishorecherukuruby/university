@@ -1,0 +1,30 @@
+<h1>Employee List</h1>
+
+<table border="1">
+	<tr>
+		<th>Name</th>
+		<th>Age</th>
+		<th>Email</th>
+		<th>PhoneNumber</th>
+		<th>Actions</th>
+	</tr>
+	<% @employees.each do |emp| %>
+	<tr>
+		<td><%= emp.name %></td>
+		<td><%= emp.age %></td>
+		<td><%= emp.email %></td>
+		<td><%= emp.phno %></td>
+		<td>
+			<%= link_to "Show", employee_path(emp) %>
+			<%= link_to "Edit", edit_employee_path(emp) %>
+			<%= link_to "Delete", employee_path(emp), method: 'delete', data: {confirm: "Do you want to delete \"#{emp.name}\" record?"}  %>
+		</td>
+	</tr>
+	<% end %>
+</table>
+
+<p>
+	<%= link_to "New Employee", new_employee_path %>
+</p>
+
+
